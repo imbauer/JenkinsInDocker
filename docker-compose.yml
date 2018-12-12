@@ -1,0 +1,78 @@
+#version: '2'
+#services:
+#  data:
+#    build: jenkins-data
+#
+#  master:
+#    build: jenkins-master
+#    volumes:
+#    - .:/backup
+#    volumes_from:
+#    - data
+#    ports:
+#    - "50000:50000"
+#
+#  nginx:
+#    build: jenkins-nginx
+#    ports:
+#    - "8084:80" # Need to make this configurable, as we'll want 80:80 in 'prod' environments
+#    links:
+#    - master:jenkins-master
+
+#version: "2"
+#services:
+#  jenkins:
+#    image: jenkinsci/blueocean
+#    user: root
+#    ports:
+#    - "8080:8080"
+#    - "8443:8443"
+#    - "50000:50000"
+#    volumes:
+#    - ./jenkins_data:/var/jenkins_home
+#    - ./home:/home
+#    - /var/run/docker.sock:/var/run/docker.sock
+
+
+
+
+#version: '2'
+#services:
+#  master:
+#    build: jenkins_master
+#    ports:
+#    - "50000:50000"
+#    networks:
+#    - frontend
+#  nginx:
+#    build: jenkins_nginx
+#    ports:
+#    - "80:80"
+#    networks:
+#    - frontend
+#networks:
+#  frontend:
+#    driver: custom-driver-1
+
+version: '3'
+services:
+  master:
+    build: jenkins-master
+    ports:
+    - "50000:50000"
+    volumes:
+    - jenkins-log:/var/log/jenkins
+    - jenkins-data:/var/jenkins_home
+    networks:
+    - jenkins-net
+  nginx:
+    build: jenkins-nginx
+    ports:
+    - "8080:80"
+    networks:
+    - jenkins-net
+volumes:
+  jenkins-log:
+  jenkins-data:
+networks:
+  jenkins-net:
