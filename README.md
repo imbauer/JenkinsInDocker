@@ -1,7 +1,7 @@
 # Jenkins Deployment inside of a Docker Container
 Using NGINX as a Reverse Proxy to connect the container (Jenkins) to the outside world (Github)
 # 1.
----> Go to this website: https://engineeringtgr.com/freedns/ 
+---> Go to this website: https://ngrok.com/download
 ... Extract the .exe from the .zip file ... Run the .exe
 ... $ ngrok http 192.168.99.100:8080     (Or whatever ip_address:port that your docker container is running on)
 # 2.
