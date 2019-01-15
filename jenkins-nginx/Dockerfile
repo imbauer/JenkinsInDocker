@@ -1,5 +1,4 @@
 FROM centos:centos7
-LABEL maintainer="mstewart@riotgames.com"
 
 # Install NGINX
 RUN yum -y update; yum clean all
