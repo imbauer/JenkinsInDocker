@@ -68,7 +68,7 @@ services:
   nginx:
     build: jenkins-nginx
     ports:
-    - "8080:80"
+    - "80:80"
     networks:
     - jenkins-net
 volumes:

@@ -15,5 +15,5 @@ Using NGINX as a Reverse Proxy to connect the container (Jenkins) to the outside
 ... Check Github hook trigger for GITScm polling
 ... Save
 # 3.
----> Now when you push a commit to this Github Project, a build should automatically begin for you :D
+---> Now when you push a commit to this Github Project, a build should automatically begin for you :D!
 # 4. Don't forget to install Docker!
